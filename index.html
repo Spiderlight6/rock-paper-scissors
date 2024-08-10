@@ -14,6 +14,14 @@
 
     <script>
 
+    let numberOfGames = 0
+
+    // create variables to keep track of the player and computer score
+    let humanScore = 0
+    let computerScore = 0
+    while(numberOfGames <= 1){
+        
+    
 
 
         // create a function that gets computer choice 
@@ -42,6 +50,8 @@
 
         }
 
+        
+
         // create a function that gets user input
         function getHumanChoice() {
             let humanChoice = prompt("Rock, paper, or Scissors?").toLocaleLowerCase()
@@ -49,9 +59,7 @@
             return humanChoice
         }
 
-        // create variables to keep track of the player and computer score
-        let humanScore = 0
-        let computerScore = 0
+        
 
         // create a function to play a round
             function playRound(humanChoice, computerChoice) {
@@ -63,12 +71,17 @@
                         console.log("Draw")
                     }
                     else if (computerChoice === "paper") {
-                        console.log("You lost paper beats rock")
+                        console.log("paper beats rock")
                         computerScore++
+                        console.log(`Your score : ${humanScore}`)
+                        console.log(`Computer score : ${computerScore}`)
+
                     }
                     else {
-                        console.log("You won rock beats scissors")
+                        console.log("rock beats scissors")
                         humanScore++
+                        console.log(`Your score : ${humanScore}`)
+                        console.log(`Computer score : ${computerScore}`)
                     }
 
                 }
@@ -80,12 +93,16 @@
                         console.log("Draw")
                     }
                     else if (computerChoice === "rock") {
-                        console.log("You Won paper beats rock")
+                        console.log("paper beats rock")
                         humanScore++
+                        console.log(`Your score : ${humanScore}`)
+                        console.log(`Computer score : ${computerScore}`)
                     }
                     else {
-                        console.log("You lost scissors beats paper")
+                        console.log("scissors beats paper")
                         computerScore++
+                        console.log(`Your score : ${humanScore}`)
+                        console.log(`Computer score : ${computerScore}`)
                     }
                 }
                 // check if player choice is scissors and compare to the computer choice
@@ -94,27 +111,54 @@
                         console.log("Draw")
                     }
                     else if (computerChoice === "rock") {
-                        console.log("You lost rock beats scissors")
+                        console.log("rock beats scissors")
                         computerScore++
+                        console.log(`Your score : ${humanScore}`)
+                        console.log(`Computer score : ${computerScore}`)
                     }
                     else {
-                        console.log("You won scissors beats paper")
+                        console.log("scissors beats paper")
                         humanScore++
+                        console.log(`Your score : ${humanScore}`)
+                        console.log(`Computer score : ${computerScore}`)
                     }
                 }
                  
-                console.log(`Player score : ${humanScore}`)
-                console.log(`Computer score : ${computerScore}`)
+                
+                
             }
 
 
         const humanSelection = getHumanChoice()
         const computerSelection = getComputerChoice()
 
+        
+
+         
+        
         //call playRound function 
         playRound(humanSelection, computerSelection)
         
 
+        numberOfGames++
+
+    }
+    if(humanScore > computerScore){
+        console.log("You Won! Congratulations  :)")
+        console.log(`Your Final score : ${humanScore}`)
+        console.log(`Computer's final score : ${computerScore}`)
+    }else if(computerScore){
+        console.log("You Lost! Better Luck Next Time! :(")
+        console.log(`Computer's final score : ${computerScore}`)
+        console.log(`Your final score : ${humanScore}`)
+    }else{
+        console.log("The Game Was A DRAW!")
+        console.log(`Your final score : ${humanScore}`)
+        console.log(`Computer's final score : ${computerScore}`)
+
+    }
+    
+    
 
     </script>
 </body>
