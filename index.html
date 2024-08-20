@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 
@@ -11,165 +13,17 @@
 
     <h1>Rock Paper Scissors</h1>
 
-    <p>There is nothing to view here because this game is played in the console
-        if you wish to see the result of the game
-        click (ctrl + shift + J) on windows or (Cmd + Option + J)  on mac
-
-        if you see an error just refresh the page
-        GOOD LUCK!
-    </p>
-
-
-
-    <script>
-
-    let numberOfGames = 0
-
-    // create variables to keep track of the player and computer score
-    let humanScore = 0
-    let computerScore = 0
-    while(numberOfGames <= 4){
-        
+    <div id="parent" ></div>
     
+    <div id="displayResult"></div>
+    <div id="displayHumanScore"></div>
+    <div id="displayComputerScore"></div>
+
+    <div id="refresh"></div>
 
 
-        // create a function that gets computer choice 
-        function getComputerChoice() {
 
-            // create variables to store the values of Rock Paper and Scissors
-            let rock = "rock"
-            let paper = "paper"
-            let scissors = "scissors"
-
-            // make the computer generate a random number from 1 to 3
-            let computerChoice = Math.floor(Math.random() * 3) + 1
-
-            // make the computer return either Rock, Paper or Scissors 
-            if (computerChoice === 1) {
-                computerChoice = rock
-            }
-            else if (computerChoice === 2) {
-                computerChoice = paper
-            }
-            else {
-                computerChoice = scissors
-            }
-
-            return computerChoice
-
-        }
-
-        
-
-        // create a function that gets user input
-        function getHumanChoice() {
-            let humanChoice = prompt("Rock, paper, or Scissors?").toLocaleLowerCase()
-            
-            return humanChoice
-        }
-
-        
-
-        // create a function to play a round
-            function playRound(humanChoice, computerChoice) {
-            humanChoice = humanChoice.toLocaleLowerCase()
-
-                // check if player choice is rock and compare to the computer choice
-                if (humanChoice === "rock") {
-                    if (computerChoice === "rock") {
-                        console.log("Draw")
-                    }
-                    else if (computerChoice === "paper") {
-                        console.log("paper beats rock")
-                        computerScore++
-                        console.log(`Your score : ${humanScore}`)
-                        console.log(`Computer score : ${computerScore}`)
-
-                    }
-                    else {
-                        console.log("rock beats scissors")
-                        humanScore++
-                        console.log(`Your score : ${humanScore}`)
-                        console.log(`Computer score : ${computerScore}`)
-                    }
-
-                }
-                else if (humanChoice === "paper") {
-
-                    // check if player choice is paper and compare to the computer choice
-
-                    if (computerChoice === "paper") {
-                        console.log("Draw")
-                    }
-                    else if (computerChoice === "rock") {
-                        console.log("paper beats rock")
-                        humanScore++
-                        console.log(`Your score : ${humanScore}`)
-                        console.log(`Computer score : ${computerScore}`)
-                    }
-                    else {
-                        console.log("scissors beats paper")
-                        computerScore++
-                        console.log(`Your score : ${humanScore}`)
-                        console.log(`Computer score : ${computerScore}`)
-                    }
-                }
-                // check if player choice is scissors and compare to the computer choice
-                else {    // this means the humanChoice is scissors
-                    if (computerChoice === "scissors") {
-                        console.log("Draw")
-                    }
-                    else if (computerChoice === "rock") {
-                        console.log("rock beats scissors")
-                        computerScore++
-                        console.log(`Your score : ${humanScore}`)
-                        console.log(`Computer score : ${computerScore}`)
-                    }
-                    else {
-                        console.log("scissors beats paper")
-                        humanScore++
-                        console.log(`Your score : ${humanScore}`)
-                        console.log(`Computer score : ${computerScore}`)
-                    }
-                }
-                 
-                
-                
-            }
-
-
-        const humanSelection = getHumanChoice()
-        const computerSelection = getComputerChoice()
-
-        
-
-         
-        
-        //call playRound function 
-        playRound(humanSelection, computerSelection)
-        
-
-        numberOfGames++
-
-    }
-    if(humanScore > computerScore){
-        console.log("You Won! Congratulations  :)")
-        console.log(`Your Final score : ${humanScore}`)
-        console.log(`Computer's final score : ${computerScore}`)
-    }else if(computerScore){
-        console.log("You Lost! Better Luck Next Time! :(")
-        console.log(`Computer's final score : ${computerScore}`)
-        console.log(`Your final score : ${humanScore}`)
-    }else{
-        console.log("The Game Was A DRAW!")
-        console.log(`Your final score : ${humanScore}`)
-        console.log(`Computer's final score : ${computerScore}`)
-
-    }
-    
-    
-
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
